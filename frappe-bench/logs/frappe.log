@@ -1,0 +1,735 @@
+2024-03-19 12:36:08,600 ERROR frappe Could not take error snapshot: No module named 'erpnext'
+Site: test.com
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 95, in application
+    init_request(request)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 168, in init_request
+    frappe.init(site=site, sites_path=_sites_path, force=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 267, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1644, in setup_module_map
+    for module in get_module_list(app):
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1491, in get_module_list
+    return get_file_items(get_app_path(app_name, "modules.txt"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1456, in get_app_path
+    return get_pymodule_path(app_name, *joins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_pymodule_path
+    return abspath(join(dirname(get_module(scrub(modulename)).__file__ or ""), *joins))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+                ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1284, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 85, in get_doc
+    return controller(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 135, in __init__
+    super().__init__(kwargs)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 133, in __init__
+    self._table_fieldnames = {df.fieldname for df in self._get_table_fields()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 341, in _get_table_fields
+    return self.meta.get_table_fields()
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 142, in meta
+    return frappe.get_meta(self.doctype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1311, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+           ^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 119, in __init__
+    self.process()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 142, in process
+    self.set_custom_permissions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 524, in set_custom_permissions
+    custom_perms = frappe.get_all(
+                   ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 2005, in get_all
+    return get_list(doctype, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1980, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 192, in execute
+    result = self.build_and_run()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 207, in build_and_run
+    args = self.prepare_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 247, in prepare_args
+    self.build_conditions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 579, in build_conditions
+    self.build_filter_conditions(self.filters, self.conditions)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 600, in build_filter_conditions
+    conditions.append(self.prepare_filter_condition(f))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 722, in prepare_filter_condition
+    additional_filters_config = get_additional_filters_from_hooks()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/boot.py", line 364, in get_additional_filters_from_hooks
+    filter_config.update(frappe.get_attr(hook)())
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1706, in get_attr
+    return getattr(get_module(modulename), methodname)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+2024-03-19 12:36:12,843 ERROR frappe Could not take error snapshot: No module named 'erpnext'
+Site: test.com
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 95, in application
+    init_request(request)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 168, in init_request
+    frappe.init(site=site, sites_path=_sites_path, force=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 267, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1644, in setup_module_map
+    for module in get_module_list(app):
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1491, in get_module_list
+    return get_file_items(get_app_path(app_name, "modules.txt"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1456, in get_app_path
+    return get_pymodule_path(app_name, *joins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_pymodule_path
+    return abspath(join(dirname(get_module(scrub(modulename)).__file__ or ""), *joins))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+                ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1284, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 85, in get_doc
+    return controller(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 135, in __init__
+    super().__init__(kwargs)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 133, in __init__
+    self._table_fieldnames = {df.fieldname for df in self._get_table_fields()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 341, in _get_table_fields
+    return self.meta.get_table_fields()
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 142, in meta
+    return frappe.get_meta(self.doctype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1311, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+           ^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 119, in __init__
+    self.process()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 142, in process
+    self.set_custom_permissions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 524, in set_custom_permissions
+    custom_perms = frappe.get_all(
+                   ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 2005, in get_all
+    return get_list(doctype, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1980, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 192, in execute
+    result = self.build_and_run()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 207, in build_and_run
+    args = self.prepare_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 247, in prepare_args
+    self.build_conditions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 579, in build_conditions
+    self.build_filter_conditions(self.filters, self.conditions)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 600, in build_filter_conditions
+    conditions.append(self.prepare_filter_condition(f))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 722, in prepare_filter_condition
+    additional_filters_config = get_additional_filters_from_hooks()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/boot.py", line 364, in get_additional_filters_from_hooks
+    filter_config.update(frappe.get_attr(hook)())
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1706, in get_attr
+    return getattr(get_module(modulename), methodname)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+2024-03-19 12:36:14,105 ERROR frappe Could not take error snapshot: No module named 'erpnext'
+Site: test.com
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 95, in application
+    init_request(request)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 168, in init_request
+    frappe.init(site=site, sites_path=_sites_path, force=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 267, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1644, in setup_module_map
+    for module in get_module_list(app):
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1491, in get_module_list
+    return get_file_items(get_app_path(app_name, "modules.txt"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1456, in get_app_path
+    return get_pymodule_path(app_name, *joins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_pymodule_path
+    return abspath(join(dirname(get_module(scrub(modulename)).__file__ or ""), *joins))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+                ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1284, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 85, in get_doc
+    return controller(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 135, in __init__
+    super().__init__(kwargs)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 133, in __init__
+    self._table_fieldnames = {df.fieldname for df in self._get_table_fields()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 341, in _get_table_fields
+    return self.meta.get_table_fields()
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 142, in meta
+    return frappe.get_meta(self.doctype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1311, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+           ^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 119, in __init__
+    self.process()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 142, in process
+    self.set_custom_permissions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 524, in set_custom_permissions
+    custom_perms = frappe.get_all(
+                   ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 2005, in get_all
+    return get_list(doctype, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1980, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 192, in execute
+    result = self.build_and_run()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 207, in build_and_run
+    args = self.prepare_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 247, in prepare_args
+    self.build_conditions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 579, in build_conditions
+    self.build_filter_conditions(self.filters, self.conditions)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 600, in build_filter_conditions
+    conditions.append(self.prepare_filter_condition(f))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 722, in prepare_filter_condition
+    additional_filters_config = get_additional_filters_from_hooks()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/boot.py", line 364, in get_additional_filters_from_hooks
+    filter_config.update(frappe.get_attr(hook)())
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1706, in get_attr
+    return getattr(get_module(modulename), methodname)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+2024-03-19 12:36:17,479 ERROR frappe Could not take error snapshot: No module named 'erpnext'
+Site: test.com
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 95, in application
+    init_request(request)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 168, in init_request
+    frappe.init(site=site, sites_path=_sites_path, force=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 267, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1644, in setup_module_map
+    for module in get_module_list(app):
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1491, in get_module_list
+    return get_file_items(get_app_path(app_name, "modules.txt"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1456, in get_app_path
+    return get_pymodule_path(app_name, *joins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_pymodule_path
+    return abspath(join(dirname(get_module(scrub(modulename)).__file__ or ""), *joins))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+                ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1284, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 85, in get_doc
+    return controller(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 135, in __init__
+    super().__init__(kwargs)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 133, in __init__
+    self._table_fieldnames = {df.fieldname for df in self._get_table_fields()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 341, in _get_table_fields
+    return self.meta.get_table_fields()
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 142, in meta
+    return frappe.get_meta(self.doctype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1311, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+           ^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 119, in __init__
+    self.process()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 142, in process
+    self.set_custom_permissions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 524, in set_custom_permissions
+    custom_perms = frappe.get_all(
+                   ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 2005, in get_all
+    return get_list(doctype, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1980, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 192, in execute
+    result = self.build_and_run()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 207, in build_and_run
+    args = self.prepare_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 247, in prepare_args
+    self.build_conditions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 579, in build_conditions
+    self.build_filter_conditions(self.filters, self.conditions)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 600, in build_filter_conditions
+    conditions.append(self.prepare_filter_condition(f))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 722, in prepare_filter_condition
+    additional_filters_config = get_additional_filters_from_hooks()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/boot.py", line 364, in get_additional_filters_from_hooks
+    filter_config.update(frappe.get_attr(hook)())
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1706, in get_attr
+    return getattr(get_module(modulename), methodname)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+2024-03-19 12:36:26,496 ERROR frappe Could not take error snapshot: No module named 'erpnext'
+Site: test.com
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 95, in application
+    init_request(request)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 168, in init_request
+    frappe.init(site=site, sites_path=_sites_path, force=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 267, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1644, in setup_module_map
+    for module in get_module_list(app):
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1491, in get_module_list
+    return get_file_items(get_app_path(app_name, "modules.txt"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1456, in get_app_path
+    return get_pymodule_path(app_name, *joins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_pymodule_path
+    return abspath(join(dirname(get_module(scrub(modulename)).__file__ or ""), *joins))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+                ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1284, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 85, in get_doc
+    return controller(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 135, in __init__
+    super().__init__(kwargs)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 133, in __init__
+    self._table_fieldnames = {df.fieldname for df in self._get_table_fields()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 341, in _get_table_fields
+    return self.meta.get_table_fields()
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 142, in meta
+    return frappe.get_meta(self.doctype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1311, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+           ^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 119, in __init__
+    self.process()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 142, in process
+    self.set_custom_permissions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 524, in set_custom_permissions
+    custom_perms = frappe.get_all(
+                   ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 2005, in get_all
+    return get_list(doctype, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1980, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 192, in execute
+    result = self.build_and_run()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 207, in build_and_run
+    args = self.prepare_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 247, in prepare_args
+    self.build_conditions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 579, in build_conditions
+    self.build_filter_conditions(self.filters, self.conditions)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 600, in build_filter_conditions
+    conditions.append(self.prepare_filter_condition(f))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 722, in prepare_filter_condition
+    additional_filters_config = get_additional_filters_from_hooks()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/boot.py", line 364, in get_additional_filters_from_hooks
+    filter_config.update(frappe.get_attr(hook)())
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1706, in get_attr
+    return getattr(get_module(modulename), methodname)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+2024-03-19 12:36:30,756 ERROR frappe Could not take error snapshot: No module named 'erpnext'
+Site: test.com
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 95, in application
+    init_request(request)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/app.py", line 168, in init_request
+    frappe.init(site=site, sites_path=_sites_path, force=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 267, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1644, in setup_module_map
+    for module in get_module_list(app):
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1491, in get_module_list
+    return get_file_items(get_app_path(app_name, "modules.txt"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1456, in get_app_path
+    return get_pymodule_path(app_name, *joins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_pymodule_path
+    return abspath(join(dirname(get_module(scrub(modulename)).__file__ or ""), *joins))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 86, in log_error_snapshot
+    log_error(title=str(exception), defer_insert=True)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/error.py", line 61, in log_error
+    error_log = frappe.get_doc(
+                ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1284, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 85, in get_doc
+    return controller(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/document.py", line 135, in __init__
+    super().__init__(kwargs)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 133, in __init__
+    self._table_fieldnames = {df.fieldname for df in self._get_table_fields()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 341, in _get_table_fields
+    return self.meta.get_table_fields()
+           ^^^^^^^^^
+  File "/usr/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/base_document.py", line 142, in meta
+    return frappe.get_meta(self.doctype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1311, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+           ^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 119, in __init__
+    self.process()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 142, in process
+    self.set_custom_permissions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/meta.py", line 524, in set_custom_permissions
+    custom_perms = frappe.get_all(
+                   ^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 2005, in get_all
+    return get_list(doctype, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1980, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 192, in execute
+    result = self.build_and_run()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 207, in build_and_run
+    args = self.prepare_args()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 247, in prepare_args
+    self.build_conditions()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 579, in build_conditions
+    self.build_filter_conditions(self.filters, self.conditions)
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 600, in build_filter_conditions
+    conditions.append(self.prepare_filter_condition(f))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/model/db_query.py", line 722, in prepare_filter_condition
+    additional_filters_config = get_additional_filters_from_hooks()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/boot.py", line 364, in get_additional_filters_from_hooks
+    filter_config.update(frappe.get_attr(hook)())
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1706, in get_attr
+    return getattr(get_module(modulename), methodname)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/__init__.py", line 1427, in get_module
+    return importlib.import_module(modulename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'erpnext'
+2024-03-19 12:48:49,265 ERROR frappe New Exception collected in error log
+Site: test.com
+Form Dict: {}
+2024-03-19 12:51:13,209 ERROR frappe New Exception collected in error log
+Site: test.com
+Form Dict: {}
+2024-03-19 12:51:14,121 ERROR frappe New Exception collected in error log
+Site: test.com
+Form Dict: {}
+2024-03-19 12:51:14,336 ERROR frappe New Exception collected in error log
+Site: test.com
+Form Dict: {}
+2024-03-19 16:55:27,479 ERROR frappe New Exception collected in error log
+Site: test.com
+Form Dict: {'doctype': 'DocType', 'old': 'Courses', 'new': 'Course', 'merge': '0', 'cmd': 'frappe.rename_doc'}
