@@ -29,6 +29,8 @@
  "modified_by": "Administrator",
  "module": "Student Details",
  "name": "Participant",
+
+ 
  "owner": "Administrator",
  "permissions": [
   {
