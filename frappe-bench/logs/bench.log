@@ -147,3 +147,167 @@
 2024-03-19 17:18:05,254 INFO /usr/local/bin/bench migrate
 2024-03-19 17:18:33,062 INFO /usr/local/bin/bench build
 2024-03-19 18:10:40,412 INFO /usr/local/bin/bench migrate
+2024-03-20 10:49:04,809 INFO /usr/local/bin/bench mariadb start
+2024-03-20 10:49:19,645 INFO /usr/local/bin/bench start
+2024-03-20 10:49:20,252 INFO /usr/local/bin/bench schedule
+2024-03-20 10:49:20,253 INFO /usr/local/bin/bench serve --port 8000
+2024-03-20 10:49:20,253 INFO /usr/local/bin/bench worker
+2024-03-20 10:49:20,255 INFO /usr/local/bin/bench watch
+2024-03-20 10:56:39,460 INFO /usr/local/bin/bench start
+2024-03-20 10:56:39,995 INFO /usr/local/bin/bench serve --port 8000
+2024-03-20 10:56:40,026 INFO /usr/local/bin/bench watch
+2024-03-20 10:56:40,034 INFO /usr/local/bin/bench worker
+2024-03-20 10:56:40,038 INFO /usr/local/bin/bench schedule
+2024-03-20 11:04:52,736 INFO /usr/local/bin/bench start
+2024-03-20 11:04:53,432 INFO /usr/local/bin/bench schedule
+2024-03-20 11:04:53,449 INFO /usr/local/bin/bench serve --port 8000
+2024-03-20 11:04:53,457 INFO /usr/local/bin/bench watch
+2024-03-20 11:04:53,468 INFO /usr/local/bin/bench worker
+2024-03-20 13:02:19,700 INFO /usr/local/bin/bench start
+2024-03-20 13:02:19,957 INFO /usr/local/bin/bench worker
+2024-03-20 13:02:19,958 INFO /usr/local/bin/bench serve --port 8000
+2024-03-20 13:02:19,975 INFO /usr/local/bin/bench schedule
+2024-03-20 13:02:19,975 INFO /usr/local/bin/bench watch
+2024-03-20 15:22:12,744 INFO /usr/local/bin/bench start
+2024-03-20 15:22:13,027 INFO /usr/local/bin/bench schedule
+2024-03-20 15:22:13,033 INFO /usr/local/bin/bench watch
+2024-03-20 15:22:13,036 INFO /usr/local/bin/bench worker
+2024-03-20 15:22:13,037 INFO /usr/local/bin/bench serve --port 8000
+2024-03-20 15:23:44,024 INFO /usr/local/bin/bench use test.com
+2024-03-20 15:24:35,225 INFO /usr/local/bin/bench new-app CustomApp
+2024-03-20 15:24:35,233 LOG creating new app customapp
+2024-03-20 15:25:39,173 LOG Installing customapp
+2024-03-20 15:25:39,175 DEBUG cd /home/erp_user/frappe-bench && /home/erp_user/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/erp_user/frappe-bench/apps/customapp 
+2024-03-20 15:25:42,054 DEBUG bench build --app customapp
+2024-03-20 15:25:42,141 INFO /usr/local/bin/bench build --app customapp
+2024-03-20 15:25:44,904 WARNING restart failed: Couldn't find supervisorctl in PATH
+2024-03-20 15:37:41,906 INFO /usr/local/bin/bench version
+2024-03-20 15:46:13,110 INFO /usr/local/bin/bench --site demo.com install app CustomApp
+2024-03-20 15:46:13,118 WARNING /usr/local/bin/bench --site demo.com install app CustomApp executed with exit code 2
+2024-03-20 15:46:49,355 INFO /usr/local/bin/bench --site test.com install app CustomApp
+2024-03-20 15:46:49,357 WARNING /usr/local/bin/bench --site test.com install app CustomApp executed with exit code 2
+2024-03-20 15:47:04,607 INFO /usr/local/bin/bench --help
+2024-03-20 15:47:21,288 INFO /usr/local/bin/bench build
+2024-03-20 15:53:30,682 INFO /usr/local/bin/bench version
+2024-03-20 16:02:15,319 INFO /usr/local/bin/bench --site test.com install-app customapp
+2024-03-20 16:03:23,112 INFO /usr/local/bin/bench start
+2024-03-20 16:03:23,434 INFO /usr/local/bin/bench watch
+2024-03-20 16:03:23,435 INFO /usr/local/bin/bench schedule
+2024-03-20 16:03:23,438 INFO /usr/local/bin/bench worker
+2024-03-20 16:03:23,444 INFO /usr/local/bin/bench serve --port 8000
+2024-03-20 16:46:58,071 INFO /usr/local/bin/bench start
+2024-03-20 16:51:04,638 INFO /usr/local/bin/bench start
+2024-03-20 16:56:38,743 INFO /usr/local/bin/bench start
+2024-03-20 16:56:59,397 INFO /usr/local/bin/bench start
+2024-03-21 10:08:50,885 INFO /usr/local/bin/bench use new_site
+2024-03-21 10:10:36,268 INFO /usr/local/bin/bench start
+2024-03-21 10:10:36,546 INFO /usr/local/bin/bench watch
+2024-03-21 10:10:36,547 INFO /usr/local/bin/bench worker
+2024-03-21 10:10:36,553 INFO /usr/local/bin/bench serve --port 8000
+2024-03-21 10:10:36,556 INFO /usr/local/bin/bench schedule
+2024-03-21 10:37:07,790 INFO /usr/local/bin/bench use new_site
+2024-03-21 10:37:24,972 INFO /usr/local/bin/bench start
+2024-03-21 10:39:17,263 INFO /usr/local/bin/bench start
+2024-03-21 10:46:10,701 INFO /usr/local/bin/bench start
+2024-03-21 10:46:10,996 INFO /usr/local/bin/bench schedule
+2024-03-21 10:46:10,996 INFO /usr/local/bin/bench watch
+2024-03-21 10:46:10,998 INFO /usr/local/bin/bench worker
+2024-03-21 10:46:10,999 INFO /usr/local/bin/bench serve --port 8000
+2024-03-21 10:53:37,175 INFO /usr/local/bin/bench use test.com
+2024-03-21 10:54:19,812 INFO /usr/local/bin/bench start
+2024-03-21 10:54:20,120 INFO /usr/local/bin/bench schedule
+2024-03-21 10:54:20,126 INFO /usr/local/bin/bench worker
+2024-03-21 10:54:20,126 INFO /usr/local/bin/bench serve --port 8000
+2024-03-21 10:54:20,133 INFO /usr/local/bin/bench watch
+2024-03-21 12:18:44,326 INFO /usr/local/bin/bench migrate
+2024-03-21 12:37:07,787 INFO /usr/local/bin/bench migrate
+2024-03-22 10:24:13,115 INFO /usr/local/bin/bench mariadb start
+2024-03-22 10:24:24,560 INFO /usr/local/bin/bench start
+2024-03-22 10:24:25,158 INFO /usr/local/bin/bench serve --port 8000
+2024-03-22 10:24:25,168 INFO /usr/local/bin/bench schedule
+2024-03-22 10:24:25,175 INFO /usr/local/bin/bench worker
+2024-03-22 10:24:25,176 INFO /usr/local/bin/bench watch
+2024-03-25 19:40:44,088 INFO /usr/local/bin/bench start
+2024-03-25 19:40:44,604 INFO /usr/local/bin/bench worker
+2024-03-25 19:40:44,608 INFO /usr/local/bin/bench watch
+2024-03-25 19:40:44,611 INFO /usr/local/bin/bench schedule
+2024-03-25 19:40:44,615 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 09:49:27,268 INFO /usr/local/bin/bench start
+2024-03-27 09:49:27,762 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 09:49:27,765 INFO /usr/local/bin/bench worker
+2024-03-27 09:49:27,777 INFO /usr/local/bin/bench watch
+2024-03-27 09:49:27,788 INFO /usr/local/bin/bench schedule
+2024-03-27 11:06:36,316 INFO /usr/local/bin/bench use test.com
+2024-03-27 11:06:56,315 INFO /usr/local/bin/bench start
+2024-03-27 11:06:56,608 INFO /usr/local/bin/bench worker
+2024-03-27 11:06:56,608 INFO /usr/local/bin/bench watch
+2024-03-27 11:06:56,608 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:06:56,611 INFO /usr/local/bin/bench schedule
+2024-03-27 11:09:17,564 INFO /usr/local/bin/bench use test.com
+2024-03-27 11:10:22,793 INFO /usr/local/bin/bench use new_site
+2024-03-27 11:11:12,828 INFO /usr/local/bin/bench use new_site
+2024-03-27 11:12:59,899 INFO /usr/local/bin/bench start
+2024-03-27 11:13:00,201 INFO /usr/local/bin/bench worker
+2024-03-27 11:13:00,201 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:13:00,210 INFO /usr/local/bin/bench watch
+2024-03-27 11:13:00,213 INFO /usr/local/bin/bench schedule
+2024-03-27 11:13:33,187 INFO /usr/local/bin/bench start
+2024-03-27 11:13:33,399 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:13:33,400 INFO /usr/local/bin/bench worker
+2024-03-27 11:13:33,415 INFO /usr/local/bin/bench watch
+2024-03-27 11:13:33,417 INFO /usr/local/bin/bench schedule
+2024-03-27 11:16:37,129 INFO /usr/local/bin/bench start
+2024-03-27 11:16:37,578 INFO /usr/local/bin/bench watch
+2024-03-27 11:16:37,580 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:16:37,581 INFO /usr/local/bin/bench schedule
+2024-03-27 11:16:37,597 INFO /usr/local/bin/bench worker
+2024-03-27 11:17:21,401 INFO /usr/local/bin/bench start
+2024-03-27 11:17:21,830 INFO /usr/local/bin/bench schedule
+2024-03-27 11:17:21,833 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:17:21,834 INFO /usr/local/bin/bench watch
+2024-03-27 11:17:21,841 INFO /usr/local/bin/bench worker
+2024-03-27 11:24:18,726 INFO /usr/local/bin/bench version
+2024-03-27 11:25:25,940 INFO /usr/local/bin/bench start
+2024-03-27 11:25:26,214 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:25:26,215 INFO /usr/local/bin/bench watch
+2024-03-27 11:25:26,223 INFO /usr/local/bin/bench schedule
+2024-03-27 11:25:26,224 INFO /usr/local/bin/bench worker
+2024-03-27 11:45:56,509 INFO /usr/local/bin/bench start
+2024-03-27 11:45:56,737 INFO /usr/local/bin/bench watch
+2024-03-27 11:45:56,737 INFO /usr/local/bin/bench worker
+2024-03-27 11:45:56,753 INFO /usr/local/bin/bench schedule
+2024-03-27 11:45:56,761 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:46:23,087 INFO /usr/local/bin/bench build
+2024-03-27 11:47:15,826 INFO /usr/local/bin/bench start
+2024-03-27 11:47:16,046 INFO /usr/local/bin/bench worker
+2024-03-27 11:47:16,046 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:47:16,048 INFO /usr/local/bin/bench schedule
+2024-03-27 11:47:16,049 INFO /usr/local/bin/bench watch
+2024-03-27 11:54:24,050 INFO /usr/local/bin/bench version
+2024-03-27 11:55:20,869 INFO /usr/local/bin/bench start
+2024-03-27 11:55:21,404 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 11:55:21,421 INFO /usr/local/bin/bench watch
+2024-03-27 11:55:21,422 INFO /usr/local/bin/bench schedule
+2024-03-27 11:55:21,428 INFO /usr/local/bin/bench worker
+2024-03-27 11:56:06,708 INFO /usr/local/bin/bench build
+2024-03-27 11:59:35,636 INFO /usr/local/bin/bench new-site newsite.com
+2024-03-27 12:00:59,525 INFO /usr/local/bin/bench use newsite.com
+2024-03-27 12:01:11,266 INFO /usr/local/bin/bench version
+2024-03-27 12:03:31,500 INFO /usr/local/bin/bench start
+2024-03-27 12:03:45,734 INFO /usr/local/bin/bench start
+2024-03-27 12:03:46,227 INFO /usr/local/bin/bench serve --port 8000
+2024-03-27 12:03:46,228 INFO /usr/local/bin/bench schedule
+2024-03-27 12:03:46,238 INFO /usr/local/bin/bench worker
+2024-03-27 12:03:46,256 INFO /usr/local/bin/bench watch
+2024-03-27 12:08:36,676 INFO /usr/local/bin/bench use newsite.com
+2024-03-27 12:08:45,896 INFO /usr/local/bin/bench --site dcode.com install-app erpnext
+2024-03-27 12:08:57,836 INFO /usr/local/bin/bench --site newsite.com install-app erpnext
+2024-03-27 12:09:27,312 INFO /usr/local/bin/bench --site newsite.com reinstall
+2024-03-27 12:11:28,222 INFO /usr/local/bin/bench --site newsite.com install-app erpnext
+2024-03-27 12:17:38,433 INFO /usr/local/bin/bench use newsite.com
+2024-03-27 12:17:49,790 INFO /usr/local/bin/bench version
+2024-03-27 12:27:36,563 INFO /usr/local/bin/bench use newsite.com
+2024-03-27 12:28:07,136 INFO /usr/local/bin/bench --site newsite.com list-app
+2024-03-27 12:28:20,443 INFO /usr/local/bin/bench --site newsite.com list-apps
+2024-03-27 12:28:56,667 INFO /usr/local/bin/bench --site newsite.com install student
+2024-03-27 12:28:56,696 WARNING /usr/local/bin/bench --site newsite.com install student executed with exit code 2

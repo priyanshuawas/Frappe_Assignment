@@ -238,3 +238,126 @@ alter table `tabDocType` add column if not exists migration_hash varchar(140)
 ALTER TABLE `tabPrint Heading` DROP INDEX `print_heading`
 2024-03-19 18:10:45,841 WARNING database DDL Query made to DB:
 ALTER TABLE `tabPrint Heading` ADD UNIQUE INDEX IF NOT EXISTS print_heading (`print_heading`)
+2024-03-20 16:11:16,588 WARNING database DDL Query made to DB:
+create table `tabclient server` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2024-03-20 16:12:48,491 WARNING database DDL Query made to DB:
+RENAME TABLE `tabclient server` TO `tabClient Server`
+2024-03-21 12:18:19,621 WARNING database DDL Query made to DB:
+create table `tabDetails_Customer` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2024-03-21 12:18:46,124 WARNING database DDL Query made to DB:
+alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2024-03-21 12:18:47,364 WARNING database DDL Query made to DB:
+ALTER TABLE `tabPrint Heading` DROP INDEX `print_heading`
+2024-03-21 12:18:48,716 WARNING database DDL Query made to DB:
+ALTER TABLE `tabPrint Heading` ADD UNIQUE INDEX IF NOT EXISTS print_heading (`print_heading`)
+2024-03-21 12:20:36,703 WARNING database DDL Query made to DB:
+ALTER TABLE `tabDetails_Customer` ADD COLUMN `first_name` varchar(140)
+2024-03-21 12:20:56,537 WARNING database DDL Query made to DB:
+ALTER TABLE `tabDetails_Customer` ADD COLUMN `last_name` varchar(140)
+2024-03-21 12:37:08,446 WARNING database DDL Query made to DB:
+alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2024-03-21 12:37:09,473 WARNING database DDL Query made to DB:
+ALTER TABLE `tabPrint Heading` DROP INDEX `print_heading`
+2024-03-21 12:37:10,550 WARNING database DDL Query made to DB:
+ALTER TABLE `tabPrint Heading` ADD UNIQUE INDEX IF NOT EXISTS print_heading (`print_heading`)
+2024-03-21 16:16:47,163 WARNING database DDL Query made to DB:
+create table `tabJob Apply` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2024-03-21 16:18:10,155 WARNING database DDL Query made to DB:
+ALTER TABLE `tabJob Apply` ADD COLUMN `role` varchar(140)
+2024-03-21 16:19:08,182 WARNING database DDL Query made to DB:
+create table `tabDetails` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2024-03-21 16:20:41,228 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parent varchar(140)
+2024-03-21 16:20:41,228 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parenttype varchar(140)
+2024-03-21 16:20:41,229 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parentfield varchar(140)
+2024-03-21 16:20:41,285 WARNING database DDL Query made to DB:
+ALTER TABLE `tabDetails` ADD COLUMN `language` varchar(140)
+2024-03-21 16:25:25,993 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parent varchar(140)
+2024-03-21 16:25:25,993 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parenttype varchar(140)
+2024-03-21 16:25:25,994 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parentfield varchar(140)
+2024-03-21 16:25:26,060 WARNING database DDL Query made to DB:
+ALTER TABLE `tabDetails` ADD COLUMN `framework` varchar(140), ADD COLUMN `ides` varchar(140), ADD COLUMN `readonly` date
+2024-03-21 16:27:40,058 WARNING database DDL Query made to DB:
+ALTER TABLE `tabJob Apply` ADD COLUMN `amended_from` varchar(140)
+2024-03-21 16:27:40,086 WARNING database DDL Query made to DB:
+ALTER TABLE `tabJob Apply` ADD INDEX `amended_from_index`(`amended_from`)
+2024-03-21 16:28:59,464 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parent varchar(140)
+2024-03-21 16:28:59,465 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parenttype varchar(140)
+2024-03-21 16:28:59,466 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parentfield varchar(140)
+2024-03-21 16:30:35,952 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parent varchar(140)
+2024-03-21 16:30:35,953 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parenttype varchar(140)
+2024-03-21 16:30:35,953 WARNING database DDL Query made to DB:
+alter table `tabDetails` add column if not exists parentfield varchar(140)

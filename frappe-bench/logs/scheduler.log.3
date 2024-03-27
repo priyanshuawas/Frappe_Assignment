@@ -1,4 +1,51 @@
-2024-03-19 16:24:45,381 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-22 10:26:25,872 ERROR scheduler Exception in Enqueue Events for Site new_site
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.11/socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
+    if is_scheduler_inactive():
+       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 110, in is_scheduler_inactive
+    if is_scheduler_disabled(verbose=verbose):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 123, in is_scheduler_disabled
+    frappe.db.get_single_value("System Settings", "enable_scheduler")
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/database.py", line 841, in get_single_value
+    ).run()
+      ^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/database.py", line 211, in sql
+    self.connect()
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/database.py", line 117, in connect
+    self._conn: "MariadbConnection" | "PostgresConnection" = self.get_connection()
+                                                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/mariadb/database.py", line 103, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/mariadb/database.py", line 109, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/mariadb/database.py", line 112, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 358, in __init__
+    self.connect()
+  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2024-03-25 19:41:46,432 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -36,7 +83,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:25:45,890 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:42:47,459 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -74,7 +121,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:26:45,910 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:43:47,615 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -112,7 +159,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:27:46,429 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:44:47,657 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -150,7 +197,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:28:46,436 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:45:47,679 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -188,7 +235,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:29:46,948 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:46:47,686 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -226,7 +273,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:30:46,957 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:47:47,717 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -264,7 +311,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:31:47,229 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:48:47,741 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -302,7 +349,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:32:47,774 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:49:47,780 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -340,7 +387,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:33:47,783 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:50:47,789 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -378,7 +425,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:34:48,266 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:51:47,836 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -416,7 +463,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:35:48,274 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:52:47,882 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -454,7 +501,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:36:48,533 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:53:47,904 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -492,7 +539,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:37:49,051 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-25 19:54:47,952 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -530,7 +577,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:38:49,313 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 09:50:29,693 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -568,7 +615,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:39:49,581 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 09:51:29,728 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -606,7 +653,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:40:49,849 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 09:52:30,216 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -644,7 +691,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:41:49,854 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 09:53:30,467 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -682,7 +729,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:42:50,369 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 09:54:30,706 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -720,7 +767,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:43:50,612 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 09:55:30,947 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -758,7 +805,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:44:50,886 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:01:20,048 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -796,7 +843,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:45:50,894 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:02:20,419 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -834,7 +881,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:46:51,163 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:03:20,964 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -872,7 +919,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:47:51,648 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:04:20,983 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -910,7 +957,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:48:51,909 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:05:21,488 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -948,7 +995,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:49:51,917 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:06:21,778 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -986,7 +1033,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:50:52,489 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:07:21,786 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1024,7 +1071,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:51:52,740 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:08:22,249 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1062,7 +1109,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:52:52,997 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:12:34,737 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1100,7 +1147,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:53:53,006 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:13:34,743 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1138,7 +1185,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:54:53,254 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:14:35,057 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1176,7 +1223,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:55:53,550 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:15:35,064 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1214,7 +1261,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:56:54,086 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:16:35,233 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1252,7 +1299,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:57:54,326 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:17:35,400 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1290,7 +1337,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:58:54,334 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:18:35,546 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():
@@ -1328,45 +1375,7 @@ Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 16:59:54,575 ERROR scheduler Exception in Enqueue Events for Site new_site
-Traceback (most recent call last):
-  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
-    if is_scheduler_inactive():
-       ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 110, in is_scheduler_inactive
-    if is_scheduler_disabled(verbose=verbose):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 123, in is_scheduler_disabled
-    frappe.db.get_single_value("System Settings", "enable_scheduler")
-  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/database.py", line 841, in get_single_value
-    ).run()
-      ^^^^^
-  File "/home/erp_user/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
-    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/erp_user/frappe-bench/apps/frappe/frappe/database/database.py", line 234, in sql
-    self._cursor.execute(query, values)
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
-    result = self._query(query)
-             ^^^^^^^^^^^^^^^^^^
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
-    conn.query(q)
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 558, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 822, in _read_query_result
-    result.read()
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 1200, in read
-    first_packet = self.connection._read_packet()
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/connections.py", line 772, in _read_packet
-    packet.raise_for_error()
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "/home/erp_user/frappe-bench/env/lib/python3.11/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.ProgrammingError: (1146, "Table '_c4c262b737512fac.tabSingles' doesn't exist")
-2024-03-19 17:00:54,814 ERROR scheduler Exception in Enqueue Events for Site new_site
+2024-03-27 10:19:35,698 ERROR scheduler Exception in Enqueue Events for Site new_site
 Traceback (most recent call last):
   File "/home/erp_user/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 73, in enqueue_events_for_site
     if is_scheduler_inactive():

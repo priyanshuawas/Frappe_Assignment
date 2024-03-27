@@ -1,20 +1,12 @@
 [
-    "tabPrint",
-    "tabTag",
-    "tabPrint Heading",
-    "tabDocPerm",
-    "tabPortal",
-    "tabCustom Field",
-    "tabSingles",
-    "tabPortal Menu Item",
-    "tabInstalled Application",
     "tabDocType State",
-    "tabDocType Action",
-    "tabCustom",
-    "tabVersion",
-    "tabInstalled",
     "tabDocType Link",
+    "tabPrint Heading",
     "tabDocField",
+    "tabDocPerm",
+    "tabTag",
     "tabDocType",
-    "tabTag Link"
+    "tabTag Link",
+    "tabPrint",
+    "tabDocType Action"
 ]
